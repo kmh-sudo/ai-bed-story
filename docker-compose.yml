@@ -19,6 +19,8 @@ services:
       - "5173:5173"
     environment:
       - HOST=0.0.0.0
+      - VITE_API_URL=https://storyai.duckdns.org/api/
+
     volumes:
       - ./frontend:/app
       - /app/node_modules
