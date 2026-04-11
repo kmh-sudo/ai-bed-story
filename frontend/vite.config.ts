@@ -5,6 +5,6 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   server: {
-    allowedHosts: ['.onrender.com', 'localhost']
+    allowedHosts: ['.onrender.com', 'localhost', 'storyai.duckdns.org']
   }
 })
