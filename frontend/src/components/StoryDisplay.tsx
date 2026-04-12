@@ -121,12 +121,12 @@ export const StoryDisplay: React.FC = () => {
             >
               🇬🇧 English
             </button>
-            <button 
+            {/* <button 
               className={`tab-button ${activeTab === 'burmese' ? 'active' : ''}`}
               onClick={() => handleTabChange('burmese')}
             >
               🇲🇲 ဗမာဘာသာ
-            </button>
+            </button> */}
           </div>
 
           <div className="story-book" ref={contentRef}>
