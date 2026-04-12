@@ -1,0 +1,28 @@
+.services:
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile 
+    container_name: bedtime-story-backend
+    ports:
+      - "3002:3002"
+    env_file:
+      - ./backend/.env
+    restart: always
+
+    command: pnpm dev 
+
+  frontend:
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: bedtime-story-frontend
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=https://storyai.duckdns.org:3002
+    depends_on:
+      - backend
+    restart: always
+
+    command: pnpm run preview -- --host 0.0.0.0
