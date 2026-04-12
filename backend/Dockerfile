@@ -12,4 +12,4 @@ COPY . .
 
 EXPOSE 3002
 
-CMD ["pnpm", "run", "dev"]
+CMD ["pnpm", "run", "dev", "--", "-host", "0.0.0.0"]
