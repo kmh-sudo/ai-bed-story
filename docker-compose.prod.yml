@@ -1,4 +1,4 @@
-.services:
+services:
   backend:
     build: 
       context: ./backend
@@ -26,3 +26,23 @@
     restart: always
 
     command: pnpm run preview -- --host 0.0.0.0
+
+  nginx:
+    image: nginx:stable-alpine
+    container_name: nginx_proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - /etc/letsencrypt:/etc/letsencrypt:ro 
+    depends_on:
+      - frontend
+      - backend
+    restart: always
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
