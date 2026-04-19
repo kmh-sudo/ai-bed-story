@@ -8,7 +8,7 @@ import cors from 'cors';
 import storyRouter from './routes/story.route.js';
 
 const app: Express = express();
-const PORT = process.env.PORT || 3002;
+const PORT: number = parseInt(process.env.PORT || '3001', 10);
 
 // Allow all origins
 app.use(cors({

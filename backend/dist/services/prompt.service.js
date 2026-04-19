@@ -1,17 +1,17 @@
 export class PromptService {
-    static buildStoryPrompt({ childName, age, theme, moral, length }) {
+    static buildStoryPrompt({ childName, age, theme, moral, length, }) {
         const lengthGuide = {
-            short: '200-300 words',
-            medium: '400-600 words',
-            long: '700-1000 words'
+            short: "200-300 words",
+            medium: "400-600 words",
+            long: "700-1000 words",
         };
         const basePrompt = `Create a magical bedtime story for ${childName}, who is ${age} years old.`;
         const themeSection = theme
             ? `The story should be about: ${theme}.`
-            : 'Choose an age-appropriate, imaginative theme.';
+            : "Choose an age-appropriate, imaginative theme.";
         const moralSection = moral
             ? `Include this moral lesson: ${moral}.`
-            : 'Include a gentle, positive life lesson.';
+            : "Include a gentle, positive life lesson.";
         const lengthSection = `The story should be approximately ${lengthGuide[length]}.`;
         //     const styleGuide = `
         // Style guidelines:

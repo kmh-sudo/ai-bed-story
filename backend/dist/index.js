@@ -5,9 +5,14 @@ import express from 'express';
 import cors from 'cors';
 import storyRouter from './routes/story.route.js';
 const app = express();
-const PORT = process.env.PORT || 3001;
-// Middleware
-app.use(cors());
+const PORT = parseInt(process.env.PORT || '3001', 10);
+// Allow all origins
+app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+}));
+app.options('*', cors());
 app.use(express.json());
 // Health check
 app.get('/health', (_req, res) => {
@@ -35,7 +40,7 @@ app.use((err, _req, res, _next) => {
         message: process.env.NODE_ENV === 'development' ? err.message : undefined
     });
 });
-app.listen(PORT, () => {
-    console.log(`🚀 Server running on http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`🚀 Server running on http://0.0.0.0:${PORT}`);
 });
 //# sourceMappingURL=index.js.map
