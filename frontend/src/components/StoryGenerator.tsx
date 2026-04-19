@@ -4,7 +4,6 @@ import { storyAPI } from '../services/api';
 import type { StoryRequest } from '../services/api';
 
 
-
 export const StoryGenerator: React.FC = () => {
     const navigate = useNavigate();
     const [formData, setFormData] = useState<StoryRequest>({
